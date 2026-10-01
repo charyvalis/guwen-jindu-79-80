@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>古文今讀 79–80 課　「其」「以」「為」字整理與選擇題</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2a1f; --muted: #6b7280; --accent: #385723; --accent-bg: #e2efda;
+    --line: #a6a6a6; --row: #f7f7f7; --hl: #c00000; --blue: #ddebf7; --orange: #fce4d6;
+    --ok: #2e7d32; --ok-bg: #e3f2e1; --bad: #c62828; --bad-bg: #fdeaea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161a16; --fg: #e8ece8; --muted: #9aa39a; --accent: #a9d18e; --accent-bg: #253323;
+      --line: #4a544a; --row: #1e241e; --hl: #ff8a80; --blue: #1f3040; --orange: #40291f;
+      --ok: #81c784; --ok-bg: #1f3a21; --bad: #ef9a9a; --bad-bg: #3f2222;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: "DFKai-SB", "BiauKai", "標楷體", "Noto Serif TC", "Songti TC", serif;
+    font-size: 17px; line-height: 1.7;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
+  h1 { text-align: center; color: var(--accent); font-size: 1.9rem; margin: 8px 0 2px; }
+  .subtitle { text-align: center; font-size: 1.35rem; font-weight: bold; margin: 0 0 6px; }
+  .lessons-line, .legend { text-align: center; color: var(--muted); font-size: .85rem; margin: 2px 0; }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 6px; }
+  nav.toc a {
+    text-decoration: none; color: var(--accent); background: var(--accent-bg);
+    padding: 4px 12px; border-radius: 999px; font-size: .9rem;
+  }
+  h2 {
+    color: var(--accent); font-size: 1.45rem; margin: 28px 0 10px; padding-bottom: 2px;
+    border-bottom: 2px solid #548235; scroll-margin-top: 12px;
+  }
+  h3 { font-size: 1.1rem; margin: 16px 0 6px; }
+  h3.lesson { background: var(--accent-bg); color: var(--accent); padding: 4px 10px; border-radius: 4px; margin-top: 22px; }
+  h3.lesson small { font-weight: normal; color: var(--muted); font-size: .8rem; }
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid var(--line); padding: 5px 10px; vertical-align: middle; }
+  table.meaning thead th { background: var(--accent-bg); text-align: center; font-size: .95rem; }
+  table.meaning.blue thead th { background: var(--blue); }
+  table.meaning.orange thead th { background: var(--orange); }
+  table.meaning tbody th { background: var(--row); width: 9.5em; text-align: center; font-size: .95rem; white-space: nowrap; }
+  .ex { font-size: .98rem; padding: 1px 0; }
+  .src { color: var(--muted); font-size: .75rem; margin-left: .3em; }
+  .hl { color: var(--hl); font-weight: bold; }
+  .note { font-size: .95rem; margin: 8px 0; }
+  .infoline { text-align: center; margin: 6px 0 10px; }
+  .printonly { display: none; }
+  .bar {
+    position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+    background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 0; margin: 10px 0 0;
+    font-family: system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; font-size: .88rem;
+  }
+  .bar .modes { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .bar button { font: inherit; color: var(--fg); background: var(--bg); border: 0; padding: 6px 12px; cursor: pointer; }
+  .bar .seg.on { background: var(--accent); color: var(--bg); }
+  .bar .stats { flex: 1 1 auto; min-width: 9em; }
+  .bar .acts { display: inline-flex; gap: 6px; }
+  .bar .act { border: 1px solid var(--line); border-radius: 8px; }
+  .bar .act#submit { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .bar button:focus-visible, button.opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.opt {
+    width: 100%; text-align: left; font: inherit; color: inherit; background: transparent; cursor: pointer;
+    border: 1px solid transparent; border-radius: 8px; padding: 3px 8px; margin: 1px 0; line-height: 1.6;
+  }
+  button.opt:hover { background: var(--accent-bg); }
+  button.opt.sel { background: var(--accent-bg); border-color: var(--accent); }
+  button.opt.right { background: var(--ok-bg); border-color: var(--ok); }
+  button.opt.wrong { background: var(--bad-bg); border-color: var(--bad); }
+  button.opt .mark { margin-left: .4em; font-weight: bold; font-family: system-ui, sans-serif; }
+  button.opt.right .mark { color: var(--ok); }
+  button.opt.wrong .mark { color: var(--bad); }
+  li.q.done button.opt { cursor: default; }
+  li.q.done button.opt:hover:not(.right):not(.wrong) { background: transparent; }
+  .exp { margin: 4px 0 0 2.4em; padding: 6px 10px; border-radius: 8px; background: var(--row); font-size: .93rem; line-height: 1.6; }
+  .exp .res { margin-right: .5em; font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif; }
+  .exp.ok .res { color: var(--ok); }
+  .exp.no .res { color: var(--bad); }
+  .sec-score { font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif; font-size: .9rem; color: var(--muted); margin: 4px 0 0; }
+
+  .rule { font-weight: bold; margin: 8px 0; }
+  ol.qs { list-style: none; counter-reset: q; padding: 0; margin: 0; }
+  li.q { counter-increment: q; margin: 10px 0 14px; break-inside: avoid; page-break-inside: avoid; }
+  li.q .stem::before { content: "（　　）" counter(q) ". "; white-space: pre; }
+  li.q .stem { padding-left: 0; }
+  ul.opts { list-style: none; margin: 2px 0 0 2.4em; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 1em; }
+  ul.opts.one { grid-template-columns: 1fr; }
+  ul.opts .lab { margin-right: .2em; }
+  u { text-underline-offset: 3px; }
+  details.answers { margin-top: 10px; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; }
+  details.answers > summary { cursor: pointer; font-weight: bold; color: var(--accent); font-size: 1.05rem; padding: 4px 0; }
+  table.key thead th { background: var(--accent-bg); }
+  table.key td.c { text-align: center; white-space: nowrap; }
+  table.key td.ans { color: var(--hl); font-weight: bold; }
+  table.key { font-size: .95rem; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 36px; }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    ul.opts { grid-template-columns: 1fr; margin-left: 1.6em; }
+    .exp { margin-left: 1.6em; }
+    .bar .stats { flex-basis: 100%; order: 3; }
+    table.meaning tbody th { width: 6.5em; white-space: normal; }
+  }
+  @media print {
+    body { font-size: 12pt; }
+    main { max-width: none; padding: 0; }
+    nav.toc, .bar, .exp, .sec-score { display: none !important; }
+    .printonly { display: block; }
+    button.opt { border: 0; padding: 0; }
+    h2.newpage { page-break-before: always; }
+    h2, h3 { page-break-after: avoid; }
+    tr { page-break-inside: avoid; }
+    .tablewrap { overflow: visible; }
+    details.answers { border: none; padding: 0; }
+  }
+
+  .poem { text-align: center; margin: 8px 0 12px; font-size: 1.15rem; line-height: 1.9; }
+  .poem p { margin: 0; }
+  .poem .hl { font-size: 1.5rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>古文今讀 第 79–80 課</h1>
+<p class="subtitle">整理：其、以、為（製作）、第一人稱與自謙用語、買櫝還珠相關成語</p>
+<p class="lessons-line">第79課 借書抄讀　第80課 買櫝還珠</p>
+<p class="legend">出處：課本標註＝課本注釋與老師註記；原文＝課文內容；補充＝整理時另加的用法</p>
+<p class="legend"><a href="index.html">前往互動版（可直接點選作答）</a>｜講義版（可列印）　｜　<a href="古文今讀79-80.docx">下載 Word 檔</a></p>
+<nav class="toc" aria-label="目錄"><a href="#handout">虛字整理</a><a href="#idioms">成語整理</a><a href="#notes">各課重點</a><a href="#practice">虛字練習</a><a href="#lessonqs">課文選擇題</a><a href="#answers">參考答案</a></nav>
+<section id="handout">
+<h2>一、其（第79、80課）</h2><div class="tablewrap"><table class="meaning orange"><thead><tr><th>意義（詞性）</th><th>例句（出處）</th></tr></thead><tbody><tr><th scope="row">代詞，指楚人（第三人稱）</th><td><div class="ex">楚人有賣「其」珠於鄭者<span class="src">（第80課，課本標註）</span></div><div class="ex">鄭人買「其」櫝而還「其」珠<span class="src">（第80課，課本標註）</span></div></td></tr></tbody></table></div><p class="note">「其」在第80課全為代詞，指前面出現的「楚人」，可譯為「他的」。</p>
+<h2>二、以（第79、80課）</h2><div class="tablewrap"><table class="meaning blue"><thead><tr><th>意義（詞性）</th><th>例句（出處）</th></tr></thead><tbody><tr><th scope="row">介，用</th><td><div class="ex">薰「以」桂椒<span class="src">（第80課，課本標註）</span></div><div class="ex">綴「以」珠玉、飾「以」玫瑰、輯「以」羽翠<span class="src">（第80課，課本標註）</span></div></td></tr><tr><th scope="row">連詞，而（表承接）</th><td><div class="ex">計日「以」還<span class="src">（第79課，課本標註）</span></div></td></tr><tr><th scope="row">以是：因為這樣</th><td><div class="ex">「以是」人多以書假余<span class="src">（第79課，課本標註）</span></div></td></tr><tr><th scope="row">介，用（把）</th><td><div class="ex">「以」書假余（用書借給我）<span class="src">（第79課，原文）</span></div></td></tr></tbody></table></div><p class="note">「以」可作「用」、「而」；「以是」是固定結構，意思是「因為這樣」。</p>
+<h2>三、為（第80課）</h2><div class="tablewrap"><table class="meaning "><thead><tr><th>意義（詞性）</th><th>例句（出處）</th></tr></thead><tbody><tr><th scope="row">ㄨㄟˊ　動，製作</th><td><div class="ex">「為」木蘭之櫃<span class="src">（第80課，課本標註）</span></div></td></tr></tbody></table></div><p class="note">本課「為」讀陽平（ㄨㄟˊ），作動詞，意思是「製作」。</p>
+<h2>四、第一人稱與自謙用語（第79課補充）</h2><div class="tablewrap"><table class="meaning "><thead><tr><th>意義（詞性）</th><th>例句（出處）</th></tr></thead><tbody><tr><th scope="row">予、余、吾</th><td><div class="ex">「余」幼時即嗜學<span class="src">（第79課，課本標註：予＝余＝吾，皆譯「我」）</span></div></td></tr><tr><th scope="row">愚、某、僕（自謙）</th><td><div class="ex">愚、某、僕可用來謙稱自己<span class="src">（第79課，課本標註）</span></div></td></tr></tbody></table></div><p class="note">「余」＝「我」；自謙之詞有愚、某、僕。</p>
+<h2>五、其他重點字詞</h2><div class="tablewrap"><table class="meaning "><thead><tr><th>意義（詞性）</th><th>例句（出處）</th></tr></thead><tbody><tr><th scope="row">於：在</th><td><div class="ex">楚人有賣其珠「於」鄭者（在鄭國）<span class="src">（第80課，課本標註）</span></div></td></tr><tr><th scope="row">假：借</th><td><div class="ex">每「假」借於藏書之家（向人借）<span class="src">（第79課，課本標註）</span></div><div class="ex">以書「假」余（借給我）<span class="src">（第79課，原文）</span></div></td></tr><tr><th scope="row">計：算</th><td><div class="ex">「計」日以還<span class="src">（第79課，課本標註）</span></div></td></tr><tr><th scope="row">還：歸還／退回</th><td><div class="ex">計日以「還」、鄭人買其櫝而「還」其珠<span class="src">（第79、80課，課本標註）</span></div></td></tr></tbody></table></div></section>
+<section id="idioms">
+<h2 class="newpage">六、成語整理</h2>
+<h3>課文成語</h3><div class="tablewrap"><table class="meaning "><thead><tr><th>成語</th><th>意思</th><th>出處</th></tr></thead><tbody><tr><th scope="row">買櫝還珠</th><td>比喻捨本逐末、取捨失當。</td><td>第80課</td></tr><tr><th scope="row">本末倒置</th><td>把根本與枝節的輕重順序弄反了。</td><td>第80課，隨堂練習</td></tr><tr><th scope="row">一擲千金</th><td>形容不惜金錢的豪舉。</td><td>第80課，課本標註</td></tr><tr><th scope="row">魚目混珠</th><td>比喻以假亂真。</td><td>第80課，課本標註</td></tr></tbody></table></div><h3>補充相關成語</h3><div class="tablewrap"><table class="meaning "><thead><tr><th>成語</th><th>意思</th><th>出處</th></tr></thead><tbody><tr><th scope="row">血本無歸</th><td>指做生意把本錢都虧光了。</td><td>第80課，隨堂練習選項</td></tr><tr><th scope="row">慧眼獨具</th><td>眼光獨到，能看出別人看不出的價值。</td><td>第80課，隨堂練習選項</td></tr></tbody></table></div></section>
+<section id="notes">
+<h2 class="newpage">各課重點</h2>
+<h3 class="lesson">第79課　借書抄讀<small>　《宋學士文集》</small></h3><div class="tablewrap"><table class="meaning "><thead><tr><th>詞語</th><th>意思</th></tr></thead><tbody><tr><th scope="row">余</th><td>我，指作者宋濂</td></tr><tr><th scope="row">嗜</th><td>愛好、喜愛</td></tr><tr><th scope="row">致</th><td>得到</td></tr><tr><th scope="row">筆錄</th><td>用筆記載抄寫</td></tr><tr><th scope="row">以</th><td>而</td></tr><tr><th scope="row">弗</th><td>不</td></tr><tr><th scope="row">怠</th><td>懶惰、鬆懈</td></tr><tr><th scope="row">逾</th><td>超過</td></tr><tr><th scope="row">以是</th><td>因為這樣</td></tr><tr><th scope="row">假</th><td>借</td></tr><tr><th scope="row">計</th><td>算</td></tr></tbody></table></div><p class="note">原文：余幼時即嗜學，家貧，無以致書以觀，每假借於藏書之家，手自筆錄，計日以還。天大寒，硯冰堅，手指不可屈伸，弗之怠。錄畢，走送之，不敢稍逾約。以是人多以書假余，余因得遍觀群書。</p>
+<p class="note">語譯：我年幼時就喜愛讀書，可是家裡貧窮，沒有辦法買書來看，常常向有收藏書籍的人家借閱，親手抄寫，計算約定的日子按時歸還。遇到極寒冷的天氣，硯臺裡的墨汁結成了堅冰，手指凍得不能彎曲與伸直，仍然不敢懈怠。抄錄完畢，趕快送還給主人，不敢稍微超過約定的期限。因為這樣，人們大多願意把書借給我，我於是能夠廣泛地閱讀各種書籍。</p>
+<p class="note">主旨：作者自述幼年家貧，卻勤奮好學，借書抄錄、苦讀，且守信按時還書，因而得以遍觀群書。</p>
+<p class="note">補充：文言文第一人稱代詞——予、余、吾，皆可譯為「我」。</p>
+<p class="note">補充：自謙用語——愚、某、僕，皆可用來謙稱自己。</p>
+<p class="note">補充：「以書假余」的「假」是「借給」；「每假借於藏書之家」的「假」是「向人借」。</p>
+<h3 class="lesson">第80課　買櫝還珠<small>　《韓非子》</small></h3><div class="tablewrap"><table class="meaning "><thead><tr><th>詞語</th><th>意思</th></tr></thead><tbody><tr><th scope="row">楚</th><td>春秋時楚國</td></tr><tr><th scope="row">鄭</th><td>春秋時鄭國</td></tr><tr><th scope="row">為</th><td>製作</td></tr><tr><th scope="row">木蘭</th><td>一種高級木料</td></tr><tr><th scope="row">櫃</th><td>小盒</td></tr><tr><th scope="row">薰</th><td>使物體沾上香料氣味</td></tr><tr><th scope="row">桂椒</th><td>肉桂和山椒兩種香料</td></tr><tr><th scope="row">綴</th><td>點綴</td></tr><tr><th scope="row">玫瑰</th><td>玉石</td></tr><tr><th scope="row">輯</th><td>裝飾連治</td></tr><tr><th scope="row">羽翠</th><td>綠色玉石</td></tr><tr><th scope="row">櫝</th><td>木製的盒子</td></tr><tr><th scope="row">還</th><td>退回（歸還）</td></tr><tr><th scope="row">鬻</th><td>賣（販賣）</td></tr></tbody></table></div><p class="note">原文：楚人有賣其珠於鄭者，為木蘭之櫃，薰以桂椒，綴以珠玉，飾以玫瑰，輯以羽翠。鄭人買其櫝而還其珠。此可謂善賣櫝矣，未可謂善鬻珠也。</p>
+<p class="note">語譯：有一個楚國人到鄭國賣珍珠，他用高級的木蘭木製作盒子，用桂、椒一類的高級香料把盒子薰得香氣襲人，盒子上面點綴了珠寶和玉石，盒子外面裝飾了美玉與翠羽。鄭國人買下了盒子，卻將珍珠退還給了楚國人。這個鄭國人可以說是善於賣盒子，卻不能說他懂得賣珠寶啊！</p>
+<p class="note">主旨：人們常過於注重外在形式而忽略內涵，取捨失當。</p>
+<p class="note">成語：買櫝還珠——後比喻捨本逐末，取捨失當。</p>
+<p class="note">補充：「為」讀ㄨㄟˊ，動詞，製作；「其」皆代指楚人；「以」＝用。</p>
+<p class="note">補充：魚目混珠——比喻以假亂真；一擲千金——形容不惜金錢的豪舉。</p>
+<p class="note">趣味諺語：買賣不成仁義在——比喻即使事情沒做成，也要講仁義，不要因為生意沒談成而傷了和氣。</p>
+<h3>字音辨析</h3><div class="tablewrap"><table class="meaning "><thead><tr><th>字</th><th>讀音</th><th>例詞（出處）</th></tr></thead><tbody><tr><th scope="row">櫝</th><td>ㄉㄨˊ</td><td>買其櫝而還其珠（第80課）</td></tr><tr><th scope="row">鬻</th><td>ㄩˋ</td><td>未可謂善鬻珠也（第80課）</td></tr><tr><th scope="row">薰</th><td>ㄒㄩㄣ</td><td>薰以桂椒（第80課）</td></tr><tr><th scope="row">綴</th><td>ㄓㄨㄟˋ</td><td>綴以珠玉（第80課）</td></tr><tr><th scope="row">輯</th><td>ㄐㄧˊ</td><td>輯以羽翠（第80課）</td></tr><tr><th scope="row">翠</th><td>ㄘㄨㄟˋ</td><td>羽翠（第80課）</td></tr><tr><th scope="row">嗜</th><td>ㄕˋ</td><td>余幼時即嗜學（第79課）</td></tr><tr><th scope="row">假</th><td>ㄐㄧㄚˇ</td><td>每假借於藏書之家（第79課）</td></tr><tr><th scope="row">硯</th><td>ㄧㄢˋ</td><td>硯冰堅（第79課）</td></tr><tr><th scope="row">怠</th><td>ㄉㄞˋ</td><td>弗之怠（第79課）</td></tr><tr><th scope="row">逾</th><td>ㄩˊ</td><td>不敢稍逾約（第79課）</td></tr></tbody></table></div></section>
+<section id="practice">
+<h2 class="newpage">古文今讀 79–80 課　虛字與成語練習</h2>
+<p class="infoline printonly">班級：＿＿＿＿　座號：＿＿＿＿　姓名：＿＿＿＿＿＿　　得分：＿＿＿＿</p>
+<p class="rule">選擇題（每題 5 分，共 100 分）。粗體字為題目所問的字。</p>
+<h3 class="lesson">虛字練習（其、以、於、為）</h3>
+<ol class="qs">
+<li class="q"><div class="stem">「薰『<b>以</b>』桂椒」的「以」，意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 用</li><li><span class="lab">(B)</span> 而</li><li><span class="lab">(C)</span> 因為</li><li><span class="lab">(D)</span> 認為</li></ul></li>
+<li class="q"><div class="stem">「計日『<b>以</b>』還」的「以」，意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 用</li><li><span class="lab">(B)</span> 而</li><li><span class="lab">(C)</span> 因為</li><li><span class="lab">(D)</span> 把</li></ul></li>
+<li class="q"><div class="stem">「『<b>以是</b>』人多以書假余」的「以是」，意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 用這個</li><li><span class="lab">(B)</span> 因為這樣</li><li><span class="lab">(C)</span> 把這個</li><li><span class="lab">(D)</span> 認為正確</li></ul></li>
+<li class="q"><div class="stem">「楚人有賣『<b>其</b>』珠於鄭者」的「其」，指的是？</div><ul class="opts"><li><span class="lab">(A)</span> 鄭人</li><li><span class="lab">(B)</span> 楚人</li><li><span class="lab">(C)</span> 珍珠</li><li><span class="lab">(D)</span> 木櫃</li></ul></li>
+<li class="q"><div class="stem">「鄭人買『<b>其</b>』櫝而還『<b>其</b>』珠」的兩個「其」，都指？</div><ul class="opts"><li><span class="lab">(A)</span> 鄭人</li><li><span class="lab">(B)</span> 楚人</li><li><span class="lab">(C)</span> 珠</li><li><span class="lab">(D)</span> 櫝</li></ul></li>
+<li class="q"><div class="stem">「楚人有賣其珠『<b>於</b>』鄭者」的「於」，意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 比</li><li><span class="lab">(B)</span> 向</li><li><span class="lab">(C)</span> 在</li><li><span class="lab">(D)</span> 被</li></ul></li>
+<li class="q"><div class="stem">「『<b>為</b>』木蘭之櫃」的「為」，意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 介，替</li><li><span class="lab">(B)</span> 動，製作</li><li><span class="lab">(C)</span> 動，擔任</li><li><span class="lab">(D)</span> 介，被</li></ul></li>
+<li class="q"><div class="stem">下列何者「不是」文言文中用來稱呼自己的字？</div><ul class="opts"><li><span class="lab">(A)</span> 余</li><li><span class="lab">(B)</span> 予</li><li><span class="lab">(C)</span> 吾</li><li><span class="lab">(D)</span> 汝</li></ul></li>
+</ol>
+<h3 class="lesson">成語練習</h3>
+<ol class="qs">
+<li class="q"><div class="stem">「買櫝還珠」後比喻？</div><ul class="opts"><li><span class="lab">(A)</span> 捨本逐末，取捨失當</li><li><span class="lab">(B)</span> 以假亂真</li><li><span class="lab">(C)</span> 不惜金錢的豪舉</li><li><span class="lab">(D)</span> 眼光獨到</li></ul></li>
+<li class="q"><div class="stem">「一擲千金」的意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 形容賭博輸光了錢</li><li><span class="lab">(B)</span> 形容不惜金錢的豪舉</li><li><span class="lab">(C)</span> 比喻本錢虧光</li><li><span class="lab">(D)</span> 比喻珍貴稀有</li></ul></li>
+<li class="q"><div class="stem">「魚目混珠」的意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 比喻以假亂真</li><li><span class="lab">(B)</span> 比喻眼光獨到</li><li><span class="lab">(C)</span> 比喻捨本逐末</li><li><span class="lab">(D)</span> 比喻血本無歸</li></ul></li>
+<li class="q"><div class="stem">「慧眼獨具」的意思是？</div><ul class="opts"><li><span class="lab">(A)</span> 做生意虧光本錢</li><li><span class="lab">(B)</span> 眼光獨到，能看出別人看不出的價值</li><li><span class="lab">(C)</span> 只重外表不重內涵</li><li><span class="lab">(D)</span> 不惜花大錢</li></ul></li>
+</ol>
+</section>
+<section id="lessonqs">
+<h2 class="newpage">古文今讀 79–80 課　課文選擇題</h2>
+<h3 class="lesson">第79課　借書抄讀<small>　《宋學士文集》</small></h3>
+<ol class="qs">
+<li class="q"><div class="stem">文中，作者「無以致書以觀」的原因是？</div><ul class="opts"><li><span class="lab">(A)</span> 目不識丁</li><li><span class="lab">(B)</span> 家境貧寒</li><li><span class="lab">(C)</span> 住的地方太落後，買不到書</li><li><span class="lab">(D)</span> 學問不足，讀不通書中的道理</li></ul></li>
+<li class="q"><div class="stem">「天大寒，硯冰堅，手指不可屈伸，弗之怠。」這段主要在描述？</div><ul class="opts"><li><span class="lab">(A)</span> 老師督促之嚴格</li><li><span class="lab">(B)</span> 對刻苦勤學的堅持</li><li><span class="lab">(C)</span> 天氣寒冷到什麼事情都無法做</li><li><span class="lab">(D)</span> 天寒冬堅冰令人畏懼</li></ul></li>
+<li class="q"><div class="stem">作者「因得遍觀群書」的原因是什麼？</div><ul class="opts"><li><span class="lab">(A)</span> 買了很多書來看</li><li><span class="lab">(B)</span> 受到名師指點</li><li><span class="lab">(C)</span> 能守信按時還書</li><li><span class="lab">(D)</span> 在天寒地凍中為人幫傭換取書來讀</li></ul></li>
+<li class="q"><div class="stem">本文的主旨是？</div><ul class="opts"><li><span class="lab">(A)</span> 感嘆幼時貧困，生活三餐不繼</li><li><span class="lab">(B)</span> 講述同鄉好學之人的苦讀事跡</li><li><span class="lab">(C)</span> 感謝老師用心指點，為學習打下良好基礎</li><li><span class="lab">(D)</span> 自述幼年家貧，借書抄錄、苦讀的過程</li></ul></li>
+</ol>
+<h3 class="lesson">第80課　買櫝還珠<small>　《韓非子》</small></h3>
+<ol class="qs">
+<li class="q"><div class="stem">楚國人要賣的是？</div><ul class="opts"><li><span class="lab">(A)</span> 珍珠</li><li><span class="lab">(B)</span> 玉石</li><li><span class="lab">(C)</span> 香料</li><li><span class="lab">(D)</span> 木盒子</li></ul></li>
+<li class="q"><div class="stem">楚國人製作精美的木盒子，用意是？</div><ul class="opts"><li><span class="lab">(A)</span> 想要多賣幾個木盒</li><li><span class="lab">(B)</span> 抬高木盒的價格</li><li><span class="lab">(C)</span> 抬高盒內珍珠的價格</li><li><span class="lab">(D)</span> 魚目混珠，讓鄭國人分不出珍珠的真假</li></ul></li>
+<li class="q"><div class="stem">下列哪一個成語可以用來形容鄭國人「買櫝還珠」的行為？</div><ul class="opts"><li><span class="lab">(A)</span> 一擲千金</li><li><span class="lab">(B)</span> 本末倒置</li><li><span class="lab">(C)</span> 血本無歸</li><li><span class="lab">(D)</span> 慧眼獨具</li></ul></li>
+<li class="q"><div class="stem">本文的主旨是？</div><ul class="opts"><li><span class="lab">(A)</span> 貨真價實的東西才賣得出去</li><li><span class="lab">(B)</span> 人們常過於注重形式而忽略內涵</li><li><span class="lab">(C)</span> 不要貪圖眼前微小的好處，而損害之後更大的利益</li><li><span class="lab">(D)</span> 空有好看的外表，卻無實際的內涵，很難得到他人認同</li></ul></li>
+</ol>
+</section>
+<section id="answers">
+<h2 class="newpage">參考答案與解析</h2>
+<details class="answers" open><summary>參考答案與解析（老師用）</summary>
+<h3>壹、虛字練習</h3><div class="tablewrap"><table class="key"><thead><tr><th>題號</th><th>答案</th><th>解析</th></tr></thead><tbody><tr><td class="c">1</td><td class="c ans">A</td><td>以：介詞，用；用桂、椒等香料薰製。</td></tr><tr><td class="c">2</td><td class="c ans">B</td><td>以：連詞，而（表承接）；算好日子而後歸還。</td></tr><tr><td class="c">3</td><td class="c ans">B</td><td>以是：因為這樣；因為守信按時還書，所以人們多願借書。</td></tr><tr><td class="c">4</td><td class="c ans">B</td><td>其：代詞，指楚人；楚人的珍珠。</td></tr><tr><td class="c">5</td><td class="c ans">B</td><td>其：皆代指楚人；買楚人的盒子、退還楚人的珍珠。</td></tr><tr><td class="c">6</td><td class="c ans">C</td><td>於：介詞，在（表地點）；在鄭國賣珍珠。</td></tr><tr><td class="c">7</td><td class="c ans">B</td><td>為：動詞，讀ㄨㄟˊ，製作。</td></tr><tr><td class="c">8</td><td class="c ans">D</td><td>予、余、吾都是第一人稱「我」；「汝」是第二人稱「你」。</td></tr></tbody></table></div><h3>貳、成語練習</h3><div class="tablewrap"><table class="key"><thead><tr><th>題號</th><th>答案</th><th>解析</th></tr></thead><tbody><tr><td class="c">1</td><td class="c ans">A</td><td>買櫝還珠：後比喻捨本逐末、取捨失當。</td></tr><tr><td class="c">2</td><td class="c ans">B</td><td>一擲千金：形容不惜金錢的豪舉。</td></tr><tr><td class="c">3</td><td class="c ans">A</td><td>魚目混珠：用魚的眼睛混充珍珠，比喻以假亂真。</td></tr><tr><td class="c">4</td><td class="c ans">B</td><td>慧眼獨具：眼光獨到，能看出別人看不出的價值（補充）。</td></tr></tbody></table></div><h3>參、課文選擇題（題號：課次－題號）</h3><div class="tablewrap"><table class="key"><thead><tr><th>題號</th><th>答案</th><th>解析</th></tr></thead><tbody><tr><td class="c">79－1</td><td class="c ans">B</td><td>「家貧，無以致書以觀」，因家境貧寒買不起書。</td></tr><tr><td class="c">79－2</td><td class="c ans">B</td><td>天寒手凍仍不懈怠，表現刻苦勤學的堅持。</td></tr><tr><td class="c">79－3</td><td class="c ans">C</td><td>「以是人多以書假余」：因為守信按時還書，人們願意借書給他。</td></tr><tr><td class="c">79－4</td><td class="c ans">D</td><td>全文自述幼年家貧、借書抄錄、刻苦讀書的過程。</td></tr></tbody></table></div><div class="tablewrap"><table class="key"><thead><tr><th>題號</th><th>答案</th><th>解析</th></tr></thead><tbody><tr><td class="c">80－1</td><td class="c ans">A</td><td>「楚人有賣其珠於鄭者」，要賣的是珍珠。</td></tr><tr><td class="c">80－2</td><td class="c ans">C</td><td>為了襯托珍珠，抬高盒內珍珠的價格。</td></tr><tr><td class="c">80－3</td><td class="c ans">B</td><td>買盒子卻退還珍珠，輕重顛倒，是本末倒置。</td></tr><tr><td class="c">80－4</td><td class="c ans">B</td><td>鄭人重盒子而輕珍珠，說明人們常重形式、忽略內涵。</td></tr></tbody></table></div></details>
+</section>
+<footer>陳翠屏老師 國文科教材　東興國中</footer>
+</main>
+</body>
+</html>
